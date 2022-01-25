@@ -16,4 +16,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+
 });
+
+Route::apiResources([
+    '/users' => App\Http\Controllers\Api\vi\User\UserController::class,
+    '/forums' => \App\Http\Controllers\Api\vi\Forum\ForumController::class,
+]);
