@@ -15,7 +15,12 @@ class UserController extends Controller
      */
     public function index()
     {
-        return 'hi';
+        $outs = [
+            'content' => '22',
+            'title' => '11',
+        ];
+
+        return $outs;
     }
 
     /**

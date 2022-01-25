@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Forum\Forum;
 use Illuminate\Database\Seeder;
 
 class ForumsTableSeeder extends Seeder
@@ -13,6 +14,6 @@ class ForumsTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Forum::factory(20)->create();
     }
 }
