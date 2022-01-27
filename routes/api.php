@@ -20,6 +20,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::apiResources([
-    '/users' => App\Http\Controllers\Api\vi\User\UserController::class,
+    '/users' => \App\Http\Controllers\Api\vi\User\UserController::class,
     '/forums' => \App\Http\Controllers\Api\vi\Forum\ForumController::class,
 ]);

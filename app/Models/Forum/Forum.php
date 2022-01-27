@@ -12,7 +12,7 @@ class Forum extends Model
 
     public $fillable = [    // 사용할 컬럼 지정
         'title',
-        'content',
+        'contents',
         'user_id',
         'created_at',
         'updated_at',

@@ -19,7 +19,7 @@ class CreateForumsTable extends Migration
             $table->string('title');    // 제목
             $table->text('contents')->nullable();   // 글 내용
 
-            $table->unsignedBigInteger('user_id')->comment('foreign'); //user의 acc를 외래키로 지정.
+            $table->unsignedBigInteger('user_id')->nullable()->comment('foreign'); //user의 acc를 외래키로 지정.
 
             $table->foreign('user_id')->references('id')->on('users')
             ->onUpdate('cascade')->onDelete('cascade');

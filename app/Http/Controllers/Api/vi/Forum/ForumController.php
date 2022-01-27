@@ -7,6 +7,7 @@ use App\Http\Resources\Forum\ForumListResource;
 use App\Http\Resources\Forum\ForumResource;
 use App\Models\Forum\Forum;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class ForumController extends Controller
 {
@@ -18,9 +19,11 @@ class ForumController extends Controller
     public function index()
     {
 
-        $outs = Forum::all();
+        $frm = Forum::all();
 
-        return ForumListResource::collection($outs);
+        Log::info($frm);
+
+        return $frm;
 
     }
 
@@ -33,9 +36,16 @@ class ForumController extends Controller
     public function store(Request $request)
     {
 
-        $outs = Forum::create($request->all());
 
-        return $outs;
+        Log::info($request);
+
+        $frm = Forum::create($request->all());
+
+        Log::info($frm);
+
+        return $frm;
+
+
 
 
 //        Forum::create([
@@ -52,9 +62,11 @@ class ForumController extends Controller
      */
     public function show(Forum $forum)
     {
-        $forum->user; // $forum에 user 함수에 해당하는 것들을 함께 보여줘
+        //$forum->user; // $forum에 user 함수에 해당하는 것들을 함께 보여줘
 
-        return new ForumResource($forum);
+        Log::info($forum);
+
+        return $forum;
     }
 
     /**
@@ -66,7 +78,17 @@ class ForumController extends Controller
      */
     public function update(Request $request, Forum $forum)
     {
-        //
+        Log::info($request);
+
+        $frm = $forum->update($request->all());
+
+        Log::info($frm);
+
+        return $frm;
+
+
+
+
     }
 
     /**
@@ -77,6 +99,12 @@ class ForumController extends Controller
      */
     public function destroy(Forum $forum)
     {
-      //  $forum->delete();
+        Log::info(__METHOD__);
+
+      $frm = $forum->delete();
+
+      return $frm;
+
+      Log::info($frm);
     }
 }
