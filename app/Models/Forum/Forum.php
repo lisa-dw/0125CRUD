@@ -2,6 +2,7 @@
 
 namespace App\Models\Forum;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -24,5 +25,10 @@ class Forum extends Model
         'updated_at' => 'datetime:Y-m-d H:i:s',
     ];
 
+
+    public function user()  //포링키로 준비가 되어있을 때, 가능하다. / 여기는 다대일 중 일의 입장이기 때문에 함수명을 단수로 써준다.
+    {
+        return $this->belongsTo(User::class);   //Forum은 User를 가질 수 있다. 는 의미
+    }
 
 }

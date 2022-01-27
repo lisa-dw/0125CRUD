@@ -14,6 +14,6 @@ class ForumsTableSeeder extends Seeder
      */
     public function run()
     {
-        Forum::factory(20)->create();
+        Forum::factory(40)->create();
     }
 }
