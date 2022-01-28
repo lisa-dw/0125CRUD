@@ -19,11 +19,19 @@ class ForumController extends Controller
     public function index()
     {
 
-        $frm = Forum::all();
+        //$frm = Forum::all();
+        $frm = Forum::where('id', '<=', 3);
+
+        $frm->with('user');
+
+        $frm->where('title', '!=', '');
+
+
+        $frm = $frm->get();
 
         Log::info($frm);
 
-        return $frm;
+        return json_encode($frm);
 
     }
 
@@ -35,8 +43,6 @@ class ForumController extends Controller
      */
     public function store(Request $request)
     {
-
-
         Log::info($request);
 
         $frm = Forum::create($request->all());
@@ -63,6 +69,11 @@ class ForumController extends Controller
     public function show(Forum $forum)
     {
         //$forum->user; // $forum에 user 함수에 해당하는 것들을 함께 보여줘
+
+        $forum->load('user');
+//        $userName = $forum->user->name;
+//        unset($forum->user);
+//        $forum->userName = $userName;
 
         Log::info($forum);
 

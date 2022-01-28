@@ -20,7 +20,7 @@ class ForumFactory extends Factory
         return [
             'title' => $this->faker->country,
             'contents'=>$this->faker->paragraph,
-            'user_id'=>User::inRandomORder()->first()->id,
+            'user_id'=>User::inRandomOrder()->first()->id,
         ];
     }
 }

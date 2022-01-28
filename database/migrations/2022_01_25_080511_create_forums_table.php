@@ -26,6 +26,8 @@ class CreateForumsTable extends Migration
 
 
             $table->timestamps();   // 글 생성/삭제시간.
+
+
         });
     }
 
